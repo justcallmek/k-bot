@@ -16,6 +16,12 @@ async def on_ready():
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
 
+@bot.command(pass_context = True)
+async def invite(ctx, userToInvite):
+        inviteLinq = await BSL.create_invite(destination = ctx.message.server, xkcd = True, max_uses = 1)
+        target_user = await BSL.get_user_info(userToInvite)
+        await BSL.send_message(target_member, inviteLinq)
+
 @bot.command(pass_context=True)
 async def ping(ctx):
     await bot.say(":ping_pong: pong!")
