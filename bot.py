@@ -17,15 +17,15 @@ async def on_ready():
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
 
+@bot.command(pass_context=True, no_pm=True)
+async def avatar(ctx, member: discord.Member):
+    """User Avatar"""
+    await bot.reply("{}".format(member.avatar_url))
+
 @bot.command(pass_context=True)
 async def invite():
   	await bot.say("Add me with this link {}".format(discord.utils.oauth_url(bot.user.id)))
-    
-@bot.command(pass_context=True)
-async def invite2():
-  	emb = (discord.Embed(description="link:".format(discord.utils.oauth_url(bot.user.id)), colour=0x000000))
-    emb.set_author (name="Invite link", icon_url='https://cdn.discordapp.com/avatars/460389947892039682/b75f1ed5b73bf81e3f779af24cfa88cf.png?size=512')
-    await client.send_message (message.channel embed=emb)
+
 
 @bot.command(pass_context=True)
 async def ping(ctx):
@@ -43,10 +43,10 @@ async def iam(ctx):
                 pass_context=True)
 async def eight_ball(context):
     possible_responses = [
-        'That is a resounding no',
-        'It is not looking likely',
-        'Too hard to tell',
-        'It is quite possible',
+        'Nah fam',
+        'I dont think so',
+        'Hmmmm. Hard to tell',
+        'It is quite possible, peasant',
         'Definitely',
         'Pappi K says yes',
     ]
