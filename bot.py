@@ -10,7 +10,7 @@ import asyncio
 import os
 import sys
 
-initial_extensions = [  # This is a list of the cogs you want to load
+initial_extensions = [  # List of cogs you 
     'ttt',
 ]
 
@@ -22,10 +22,10 @@ async def bot_cmd():
 
 if __name__ == '__main__':
 
-    sys.path.insert(1, os.getcwd() + "/cogs/")  # this allows the cogs in the cogs folder to be loaded
+    sys.path.insert(1, os.getcwd() + "/cogs/")  # cogs to be loaded
 
     for extension in initial_extensions:
-        bot.load_extension(extension)  # This adds the cogs listed in initial_extensions to the bot
+        bot.load_extension(extension)  # Add the cogs listed in initial_extensions to the bot
 
 @bot.event
 async def on_ready():
