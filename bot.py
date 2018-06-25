@@ -16,11 +16,16 @@ async def on_ready():
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
 
-@bot.command(pass_context = True)
-async def invite(ctx, userToInvite):
-        inviteLinq = await bot.create_invite(destination = ctx.message.server, xkcd = True, max_uses = 1)
-        target_user = await bot.get_user_info(userToInvite)
-        await bot.say(target_member, inviteLinq)
+@bot.command(pass_context=True)
+async def info(ctx, user: discord.Member):
+    embed = discord.Embed(title="{}'s info".format(user.name), description="Here's what I could find.", color=0x000000)
+    embed.add_field(name="Name", value=user.name, inline=True)
+    embed.add_field(name="ID", value=user.id, inline=True)
+    embed.add_field(name="Status", value=user.status, inline=True)
+    embed.add_field(name="Highest role", value=user.top_role)
+    embed.add_field(name="Joined", value=user.joined_at)
+    embed.set_thumbnail(url=user.avatar_url)
+    await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
 async def ping(ctx):
