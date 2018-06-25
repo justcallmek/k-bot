@@ -17,17 +17,10 @@ async def on_ready():
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
 
-@bot.command()
-async def invite2():
-  	"""Bot Invite"""
-  	await bot.say("Add me with this link {}".format(discord.utils.oauth_url(bot.user.id)))    
-    
 @bot.command(pass_context=True)
-async def invite(ctx, user: discord.Member):
-    embed = discord.Embed(title="{}'s info".format(user.name), description="Use the link below to invite me to your server", color=0x000000)
-    embed.add_field(name="Invite link", value=.format(discord.utils.oauth_url(bot.user.id), inline=True)
-    await bot.say(embed=embed)
-
+async def invite2():
+  	await bot.say("Add me with this link {}".format(discord.utils.oauth_url(bot.user.id)))
+    
 @bot.command(pass_context=True)
 async def ping(ctx):
     await bot.say(":ping_pong: pong!")
