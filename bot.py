@@ -34,7 +34,7 @@ async def ping(ctx):
 
 @bot.command(pass_context=True)
 async def iam(ctx):
-    await bot.say("Gay")
+    await bot.say("Gay. Really, really gay.")
 
 @bot.command(name='8ball',
                 description="Answers a yes/no question.",
@@ -51,6 +51,22 @@ async def eight_ball(context):
         'Pappi K says yes',
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
+
+@bot.command(name='bread',
+                description="Random bread duck meme",
+                brief="Answers from the beyond.",
+                pass_context=True)
+async def bread(context):
+    possible_responses = [
+        '<:bread:459074070819110956> ***CRUMB FOR ME DADDY***',
+        '<:bread:459074070819110956> ***LET ME WADDLE IN YO ASSHOLE***',
+        '<:bread:459074070819110956> ***ALWAYS PEE AFTER SEX***',
+        '<:bread:459074070819110956> ***I NUTELLAD ON YOUR GIRLS BUNS***',
+        '<:bread:459074070819110956> ***Y’ALL GOT ANY BREAD***',
+        '<:bread:459074070819110956> ***LEMME GIVE YOU THIS FRENCH STICK***',
+        '<:bread:459074070819110956> ***I’LL PUT A BUN IN YOUR OVEN***',
+    ]
+    await bot.say(random.choice(possible_responses))
 
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
