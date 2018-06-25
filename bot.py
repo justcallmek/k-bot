@@ -50,7 +50,7 @@ async def eight_ball(context):
         'Definitely',
         'Pappi K says yes',
     ]
-    await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
+    await bot.say(random.choice(possible_responses))
 
 @bot.command(name='bread',
                 description="Random bread duck meme",
