@@ -20,7 +20,7 @@ async def on_ready():
 async def invite(ctx, userToInvite):
         inviteLinq = await bot.create_invite(destination = ctx.message.server, xkcd = True, max_uses = 1)
         target_user = await bot.get_user_info(userToInvite)
-        await bot.send_message(target_member, inviteLinq)
+        await bot.say(target_member, inviteLinq)
 
 @bot.command(pass_context=True)
 async def ping(ctx):
