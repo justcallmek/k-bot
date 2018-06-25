@@ -23,9 +23,9 @@ async def invite():
     
 @bot.command(pass_context=True)
 async def invite2():
-  	embed = (discord.Embed(description="".format(discord.utils.oauth_url(bot.user.id)), colour=0x000000))
-    embed.set_author (name="Invite link", icon_url='https://cdn.discordapp.com/avatars/460389947892039682/b75f1ed5b73bf81e3f779af24cfa88cf.png?size=512')
-    await bot.say(embed=embed)
+  	emb = (discord.Embed(description="link:".format(discord.utils.oauth_url(bot.user.id)), colour=0x000000))
+    emb.set_author (name="Invite link", icon_url='https://cdn.discordapp.com/avatars/460389947892039682/b75f1ed5b73bf81e3f779af24cfa88cf.png?size=512')
+    await client.send_message (message.channel embed=emb)
 
 @bot.command(pass_context=True)
 async def ping(ctx):
