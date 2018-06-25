@@ -16,15 +16,15 @@ async def on_ready():
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
 
+@bot.command()
+async def invite2():
+  	"""Bot Invite"""
+  	await bot.say("Add me with this link {}".format(discord.utils.oauth_url(bot.user.id)))    
+    
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
-    embed = discord.Embed(title="{}'s info".format(user.name), description="Here's what I could find.", color=0x000000)
-    embed.add_field(name="Name", value=user.name, inline=True)
-    embed.add_field(name="ID", value=user.id, inline=True)
-    embed.add_field(name="Status", value=user.status, inline=True)
-    embed.add_field(name="Highest role", value=user.top_role)
-    embed.add_field(name="Joined", value=user.joined_at)
-    embed.set_thumbnail(url=user.avatar_url)
+    embed = discord.Embed(title="{}'s info".format(user.name), description="Use the link below to invite me to your server", color=0x000000)
+    embed.add_field(name="Invite link", value=.format(discord.utils.oauth_url(bot.user.id), inline=True)
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
