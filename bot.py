@@ -1,14 +1,31 @@
 # K bot by K
 
 import discord
-import random
-import aiohttp
 from discord import Game
 from discord.ext import commands
 from discord.ext.commands import Bot
+import random
+import aiohttp
 import asyncio
+import os
+import sys
 
-bot = commands.Bot(command_prefix='k ')
+initial_extensions = [  # This is a list of the cogs you want to load
+    'ttt',
+]
+
+bot = commands.Bot(command_prefix="k ", description="K bot prefix")
+
+@bot.command()
+async def bot_cmd():
+    await bot.say("This is in the main bot file")
+
+if __name__ == '__main__':
+
+    sys.path.insert(1, os.getcwd() + "/cogs/")  # this allows the cogs in the cogs folder to be loaded
+
+    for extension in initial_extensions:
+        bot.load_extension(extension)  # This adds the cogs listed in initial_extensions to the bot
 
 @bot.event
 async def on_ready():
@@ -65,6 +82,7 @@ async def bread(context):
         '<:bread:459074070819110956> ***Y’ALL GOT ANY BREAD***',
         '<:bread:459074070819110956> ***LEMME GIVE YOU THIS FRENCH STICK***',
         '<:bread:459074070819110956> ***I’LL PUT A BUN IN YOUR OVEN***',
+        '<:bread:459074070819110956> ***YOUR GRANDMA FED ME BREAD LAST WEEK NIGGA***',
     ]
     await bot.say(random.choice(possible_responses))
 
