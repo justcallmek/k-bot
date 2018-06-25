@@ -18,9 +18,15 @@ async def on_ready():
     print ("With the ID: " + bot.user.id)
 
 @bot.command(pass_context=True)
-async def invite2():
+async def invite():
   	await bot.say("Add me with this link {}".format(discord.utils.oauth_url(bot.user.id)))
     
+@bot.command(pass_context=True)
+async def invite2():
+  	embed = (discord.Embed(description="".format(discord.utils.oauth_url(bot.user.id)), colour=0x000000))
+      embed.set_author (name="Invite link", icon_url='https://cdn.discordapp.com/avatars/460389947892039682/b75f1ed5b73bf81e3f779af24cfa88cf.png?size=512')
+    await bot.say(embed=embed)
+
 @bot.command(pass_context=True)
 async def ping(ctx):
     await bot.say(":ping_pong: pong!")
