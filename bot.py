@@ -9,6 +9,7 @@ import aiohttp
 import asyncio
 import os
 import sys
+import config
 
 initial_extensions = [  # This is a list of the cogs you want to load
     'ttt',
@@ -103,3 +104,4 @@ async def kick(ctx, user: discord.Member):
     await bot.kick(user)
 
 
+bot.run(config.key)
