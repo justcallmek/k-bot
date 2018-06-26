@@ -106,7 +106,7 @@ async def kick(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 async def jazz():
     embed = discord.Embed()
-    embed.set_image(url="https://memegenerator.net/img/instances/74747249/ya-like-jazz.jpg")
+    embed.set_image(url="https://i.imgur.com/OcQx7jN.gif")
     await bot.say(embed=embed)
 
 bot.run(config.key)
