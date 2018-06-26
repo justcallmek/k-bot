@@ -103,5 +103,10 @@ async def kick(ctx, user: discord.Member):
     await bot.say("Adios, {}. Peasant.".format(user.name))
     await bot.kick(user)
 
+@bot.command(pass_context=True)
+async def jazz():
+    embed = discord.Embed()
+    embed.set_image(url="https://memegenerator.net/img/instances/74747249/ya-like-jazz.jpg")
+    await bot.say(embed=embed)
 
 bot.run(config.key)
