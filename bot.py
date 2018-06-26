@@ -102,4 +102,4 @@ async def kick(ctx, user: discord.Member):
     await bot.say("Adios, {}. Peasant.".format(user.name))
     await bot.kick(user)
 
-bot.run("config.secret")
+
