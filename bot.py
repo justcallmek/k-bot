@@ -104,7 +104,7 @@ async def kick(ctx, user: discord.Member):
     await bot.kick(user)
 
 @bot.command(pass_context=True)
-async def jazz():
+async def jazz(ctx, user: discord.Member):
     embed = discord.Embed()
     embed.set_image(url="https://i.imgur.com/OcQx7jN.gif")
     await bot.say(embed=embed)
