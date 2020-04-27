@@ -3,7 +3,7 @@ from discord.ext import commands
 
 class TTT:
 	"""
-	Tic Tac Toe cog for k-bot
+	Tic Tac Toe cog for Lil K bot
 	"""
 
 	def __init__(self, bot):
@@ -133,6 +133,7 @@ class TTT:
 			return "draw"
 		return None
 	
+
 	# <snippet>
 	def tttFindStreaks(self, m, xo):
 		row = [0, 0, 0]
@@ -198,7 +199,7 @@ class TTT:
 	def tttCheckDraw(self, board):
 		return not " " in board
 	
-	# Leave
+	# Don't touch anything here. I forgot how it worked, it just does.
 	def tttAIThink(self, m):
 		rx, cx, dx = self.tttFindStreaks(m, "x")
 		ro, co, do = self.tttFindStreaks(m, "o")
