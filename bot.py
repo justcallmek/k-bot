@@ -1,4 +1,4 @@
-# Lil K bot by Kiedo
+# K bot by K
 
 import discord
 from discord import Game
@@ -10,13 +10,12 @@ import asyncio
 import os
 import sys
 import config
-import youtube_dl
 
-initial_extensions = [  # list of the cogs to load
+initial_extensions = [  # This is a list of the cogs you want to load
     'ttt',
 ]
 
-bot = commands.Bot(command_prefix="=", description="Lil K prefix")
+bot = commands.Bot(command_prefix="k ", description="K bot prefix")
 
 @bot.command()
 async def bot_cmd():
@@ -24,10 +23,10 @@ async def bot_cmd():
 
 if __name__ == '__main__':
 
-    sys.path.insert(1, os.getcwd() + "/cogs/")  # Allows the cogs in the cogs folder to be loaded
+    sys.path.insert(1, os.getcwd() + "/cogs/")  # this allows the cogs in the cogs folder to be loaded
 
     for extension in initial_extensions:
-        bot.load_extension(extension)  # Adds the cogs listed in initial_extensions to the bot
+        bot.load_extension(extension)  # This adds the cogs listed in initial_extensions to the bot
 
 @bot.event
 async def on_ready():
@@ -35,7 +34,6 @@ async def on_ready():
     print ("Ready player one")
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
-
 
 @bot.command(pass_context=True, no_pm=True)
 async def avatar(ctx, member: discord.Member):
@@ -46,14 +44,15 @@ async def avatar(ctx, member: discord.Member):
 async def invite():
   	await bot.say("Add me with this link {}".format(discord.utils.oauth_url(bot.user.id)))
 
+
 @bot.command(pass_context=True)
 async def ping(ctx):
     await bot.say(":ping_pong: pong!")
     print ("user has pinged")
 
 @bot.command(pass_context=True)
-async def oosh(ctx):
-    await bot.say("https://i.imgflip.com/19yliy.jpg")
+async def iam(ctx):
+    await bot.say("Gay. Really, really gay.")
 
 @bot.command(name='8ball',
                 description="Answers a yes/no question.",
@@ -61,26 +60,13 @@ async def oosh(ctx):
                 aliases=['eight_ball', 'eightball', '8-ball'],
                 pass_context=True)
 async def eight_ball(context):
-
     possible_responses = [
         'Nah fam',
         'I dont think so',
         'Hmmmm. Hard to tell',
         'It is quite possible, peasant',
         'Definitely',
-        'Pappi Widdy says yes',
-    ]
-    await bot.say(random.choice(possible_responses))
-
-@bot.command(name='coinflip',
-                description="Heads or tails",
-                brief="Heads or tails",
-                pass_context=True)
-async def coinflip(context):
-
-    possible_responses = [
-        'Heads',
-        'Tails',
+        'Pappi K says yes',
     ]
     await bot.say(random.choice(possible_responses))
 
@@ -90,15 +76,14 @@ async def coinflip(context):
                 pass_context=True)
 async def bread(context):
     possible_responses = [
-        '***CRUMB FOR ME DADDY***',
-        '***LET ME WADDLE IN YO ASSHOLE***',
-        '***ALWAYS PEE AFTER SEX***',
-        '***I NUTELLAD ON YOUR GIRLS BUNS***',
-        '***Y’ALL GOT ANY BREAD***',
-        '***LEMME GIVE YOU THIS FRENCH STICK***',
-        '***I’LL PUT A BUN IN YOUR OVEN***',
-        '***YOUR GRANDMA FED ME BREAD LAST WEEK NIGGA***',
-        ' ***BREAD IS JUST RAW TOAST***',
+        '<:bread:459074070819110956> ***CRUMB FOR ME DADDY***',
+        '<:bread:459074070819110956> ***LET ME WADDLE IN YO ASSHOLE***',
+        '<:bread:459074070819110956> ***ALWAYS PEE AFTER SEX***',
+        '<:bread:459074070819110956> ***I NUTELLAD ON YOUR GIRLS BUNS***',
+        '<:bread:459074070819110956> ***Y’ALL GOT ANY BREAD***',
+        '<:bread:459074070819110956> ***LEMME GIVE YOU THIS FRENCH STICK***',
+        '<:bread:459074070819110956> ***I’LL PUT A BUN IN YOUR OVEN***',
+        '<:bread:459074070819110956> ***YOUR GRANDMA FED ME BREAD LAST WEEK NIGGA***',
     ]
     await bot.say(random.choice(possible_responses))
 
@@ -114,21 +99,14 @@ async def info(ctx, user: discord.Member):
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
+async def kick(ctx, user: discord.Member):
+    await bot.say("Adios, {}. Peasant.".format(user.name))
+    await bot.kick(user)
+
+@bot.command(pass_context=True)
 async def jazz(ctx, user: discord.Member):
     embed = discord.Embed()
     embed.set_image(url="https://i.imgur.com/OcQx7jN.gif")
-    await bot.say(embed=embed)
-
-@bot.command(pass_context=True)
-async def hsr(ctx, user: discord.Member):
-    embed = discord.Embed()
-    embed.set_image(url="https://imgur.com/a/RzXDrwv")
-    await bot.say(embed=embed)
-
-@bot.command(pass_context=True)
-async def nou(ctx,):
-    embed = discord.Embed(color=0xCCCCFF)
-    embed.set_image(url="https://i.imgur.com/0KpVMqp.png")
     await bot.say(embed=embed)
 
 bot.run(config.key)
